@@ -4,7 +4,7 @@ Convert Videos out of Gthumb
 
 My Standardprocess to reduce Videos Drastically in Size to store them Longterm
 
-derived from gthumb_make_panorama
+derived from https://github.com/paskalito/gthumb_make_panorama
 
 ### Install / Update
 
