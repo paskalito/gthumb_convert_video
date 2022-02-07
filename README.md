@@ -1,6 +1,7 @@
 # gthumb_convert_video
 
 Convert Videos out of Gthumb
+
 My Standardprocess to reduce Videos Drastically in Size to store them Longterm
 
 derived from gthumb_make_panorama
