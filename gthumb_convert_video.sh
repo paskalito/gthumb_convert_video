@@ -23,13 +23,14 @@ if hash HandBrakeCLI 2>/dev/null; then
 	cd "$NOW"
 
 
-	### Do the Converstion
+	### Do the Conversion
 
 	for filename in *.*; do
 		# the handbrake convert code
-		# added nice to which starts the converting process in lowes priority so you can still use your computer
+		# added nice to which starts the converting process in lowest priority so you can still use your computer
+		# added flock, so that only one conversion is happening at the time - the others wait
 		# HandBrakeCLI -i "$filename" -o "${filename%.*}_converted.m4v" --preset="High Profile"
-		nice -n 19 HandBrakeCLI -i "$filename" -o "${filename%.*}_converted.m4v" --preset="Fast 1080p30"
+		flock /tmp/gthumb_convert_video.lockfile nice -n 19 HandBrakeCLI -i "$filename" -o "${filename%.*}_converted.m4v" --preset="Fast 1080p30"
 		mv "${filename%.*}_converted.m4v" "$1"/
 		rm "$filename"
 	done
